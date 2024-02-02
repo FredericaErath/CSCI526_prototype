@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     public float moveSpeed = 1f;
     public float jumpForce = 2f;
+    private rigidbody2D rb;
+    private bool isGrounded;
     void Start()
     {
         
