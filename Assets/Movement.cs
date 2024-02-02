@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float speed = 2.0f; // Adjust this value to set the movement speed
+    public float speed = 1.0f; // Adjust this value to set the movement speed
     public float amplitude = 1.0f; // Adjust this value to set the movement amplitude
 
     private float originalY;
