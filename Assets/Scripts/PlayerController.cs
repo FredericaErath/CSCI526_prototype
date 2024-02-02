@@ -5,6 +5,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+    public float moveSpeed = 5f;
+    public float jumpForce = 10f;
+
+    private Rigidbody2D rb;
+    private bool isGrounded;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
