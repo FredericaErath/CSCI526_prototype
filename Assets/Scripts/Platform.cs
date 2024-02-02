@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,27 +6,38 @@ using UnityEngine;
 public class Platform : MonoBehaviour
 {
     // Start is called before the first frame update
+    private BoxCollider2D _boxCollider2D;
+    public float transparency = 0.5f;
     void Start()
     {
-        StartCoroutine(PlatformRoutine());
+        Renderer renderer = GetComponent<Renderer>();
+        Material rendererMaterial = renderer.material;
+        _boxCollider2D = GetComponent<BoxCollider2D>();
+        StartCoroutine(PlatformRoutine(_boxCollider2D, rendererMaterial));
     }
 
-    private IEnumerator PlatformRoutine()
+    private IEnumerator PlatformRoutine(BoxCollider2D boxCollider2D, Material material)
     {
-        WaitForSeconds waitAppear = new WaitForSeconds(1f); // 平台出现的等待时间
-        WaitForSeconds waitDisappear = new WaitForSeconds(1f); // 平台消失的等待时间
-
+        float appearInterval = 1f; // the beat
         while (true)
         {
-            yield return waitAppear; // 等待平台出现的时间
+            yield return new WaitForSeconds(appearInterval); // wait
+            
+             // ban the platform
+            boxCollider2D.enabled = !boxCollider2D.enabled;
+            Color color = material.color;
+            if (boxCollider2D.enabled == false)
+            {
+                color.a = transparency;
+                material.color = color;
+            }
+            else
+            {
+                color.a = 1;
+                material.color = color;
+            }
 
-            // activate the platform
-            gameObject.SetActive(true);
-
-            yield return waitDisappear; // 等待平台消失的时间
-
-            // ban the platform
-            gameObject.SetActive(false);
+            
         }
     }
     
