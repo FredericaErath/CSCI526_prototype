@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Platform : MonoBehaviour
@@ -19,25 +17,40 @@ public class Platform : MonoBehaviour
     private IEnumerator PlatformRoutine(BoxCollider2D boxCollider2D, Material material)
     {
         float appearInterval = 1f; // the beat
+        var gameObj = boxCollider2D.gameObject; 
+        Debug.Log(gameObj);
         while (true)
         {
-            yield return new WaitForSeconds(appearInterval); // wait
-            
-             // ban the platform
-            boxCollider2D.enabled = !boxCollider2D.enabled;
-            Color color = material.color;
-            if (boxCollider2D.enabled == false)
+            if (gameObj.CompareTag("Ground"))
             {
-                color.a = transparency;
-                material.color = color;
+                yield return new WaitForSeconds(appearInterval); // wait
+                // disable the collider, change the transparency of the material
+                Change(boxCollider2D, material);
             }
             else
             {
-                color.a = 1;
-                material.color = color;
+                // a different beat
+                Change(boxCollider2D, material);
+                yield return new WaitForSeconds(appearInterval); // wait
             }
-
             
+        }
+    }
+
+    private void Change(BoxCollider2D boxCollider2D, Material material)
+    {
+        
+        boxCollider2D.enabled = !boxCollider2D.enabled;
+        var color = material.color;
+        if (boxCollider2D.enabled == false)
+        {
+            color.a = transparency;
+            material.color = color;
+        }
+        else
+        {
+            color.a = 1;
+            material.color = color;
         }
     }
     
