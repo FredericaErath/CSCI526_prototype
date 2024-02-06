@@ -15,7 +15,7 @@ public class Reborn : MonoBehaviour
     void Respawn()
     {
         // reborn at the start position
-        rb.position = respawnPoint;
+        rb.transform.position = respawnPoint;
     }
 
     // Update is called once per frame

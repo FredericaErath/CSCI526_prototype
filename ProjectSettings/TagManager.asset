@@ -8,6 +8,8 @@ TagManager:
   - Ground1
   - Key
   - Door
+  - Enemy
+  - Door2
   layers:
   - Default
   - TransparentFX
