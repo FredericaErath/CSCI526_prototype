@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    
-
-
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
 
     private Rigidbody2D rb;
     private bool isGrounded;
-
+    private bool hasKey = false;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -23,6 +21,30 @@ public class PlayerController : MonoBehaviour
         Move();
         Jump();
     }
+    
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Key"))
+        {
+            Destroy(other.gameObject); // destroy key
+            // add attribute to player
+            hasKey = true;
+        }
+        if (other.CompareTag("Door"))
+        {
+            if (hasKey == true)
+            {
+                Debug.Log("Win");
+                    
+            }
+            else
+            {
+                Debug.Log("You haven't got a key yet!");
+            }
+        }
+    }
+    
+    
 
     void Move()
     {

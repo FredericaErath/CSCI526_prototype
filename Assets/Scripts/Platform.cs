@@ -18,7 +18,6 @@ public class Platform : MonoBehaviour
     {
         float appearInterval = 1f; // the beat
         var gameObj = boxCollider2D.gameObject; 
-        Debug.Log(gameObj);
         while (true)
         {
             if (gameObj.CompareTag("Ground"))
@@ -27,7 +26,7 @@ public class Platform : MonoBehaviour
                 // disable the collider, change the transparency of the material
                 Change(boxCollider2D, material);
             }
-            else
+            else if (gameObj.CompareTag("Ground1"))
             {
                 // a different beat
                 Change(boxCollider2D, material);
