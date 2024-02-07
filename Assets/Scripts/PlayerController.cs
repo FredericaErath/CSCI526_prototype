@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
+    public Vector2 respawnPoint  = new Vector2(-10, 2); // 初始重生点
 
     private Rigidbody2D rb;
     private bool isGrounded;
@@ -30,12 +32,15 @@ public class PlayerController : MonoBehaviour
             // add attribute to player
             hasKey = true;
         }
-        if (other.CompareTag("Door"))
+        else if (other.CompareTag("Enemy"))
+        {
+            rb.transform.position = respawnPoint;
+        }
+        else if (other.CompareTag("Door"))
         {
             if (hasKey == true)
             {
                 Debug.Log("Win");
-                    
             }
             else
             {
