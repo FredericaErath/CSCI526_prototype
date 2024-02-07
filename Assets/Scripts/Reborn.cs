@@ -21,7 +21,7 @@ public class Reborn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rb.position.y < -6f) // when the player fall out of the scene
+        if (rb.position.y < -3f) // when the player fall out of the scene
         {
             Respawn();
             
