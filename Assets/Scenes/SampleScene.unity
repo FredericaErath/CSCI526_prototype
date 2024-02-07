@@ -1185,7 +1185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpForce: 10
-  respawnPoint: {x: -10, y: 2, z: 0}
+  respawnPoint: {x: -10, y: 2}
 --- !u!61 &885752768
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1283,6 +1283,7 @@ GameObject:
   - component: {fileID: 936174870}
   - component: {fileID: 936174869}
   - component: {fileID: 936174868}
+  - component: {fileID: 936174871}
   m_Layer: 0
   m_Name: Square
   m_TagString: Enemy
@@ -1429,6 +1430,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &936174871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936174866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 813a03dd10aa94e44b2ad2b4bcf20099, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 7
+  amplitude: 0.3
 --- !u!1 &1079831654
 GameObject:
   m_ObjectHideFlags: 0
@@ -1647,6 +1662,7 @@ GameObject:
   - component: {fileID: 1143128085}
   - component: {fileID: 1143128084}
   - component: {fileID: 1143128083}
+  - component: {fileID: 1143128087}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Ground
@@ -1806,6 +1822,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1143128087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143128081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf1c91a3b6a351b4496fa247c350b68a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transparency: 0.5
 --- !u!1 &1643695723
 GameObject:
   m_ObjectHideFlags: 0
