@@ -24,7 +24,7 @@ public class StaticMusic : MonoBehaviour
             Debug.LogError("RectTransform component not found.");
             return;
         }
-    
+
     }
 
     // Update is called once per frame
@@ -32,6 +32,9 @@ public class StaticMusic : MonoBehaviour
     {
         // Ensure the UI element stays in the same position on the screen
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
+        screenPosition.x -= 17670;
+        screenPosition.y -= 7810;
+        Debug.Log(screenPosition);
         rectTransform.position = screenPosition;
     }
 }
